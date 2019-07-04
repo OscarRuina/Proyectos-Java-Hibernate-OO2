@@ -3,15 +3,15 @@ package datos;
 public class PersonaJuridica extends Cliente{
 	
 	private int idPersonaJuridica;
-	private String cuit;
 	private String razonSocial;
+	private String cuit;
 	
 	public PersonaJuridica() {}
 
-	public PersonaJuridica(String direccion, String cuit, String razonSocial) {
+	public PersonaJuridica(String direccion, String razonSocial, String cuit) {
 		super(direccion);
-		this.cuit = cuit;
 		this.razonSocial = razonSocial;
+		this.cuit = cuit;
 	}
 
 	public int getIdPersonaJuridica() {
@@ -22,14 +22,6 @@ public class PersonaJuridica extends Cliente{
 		this.idPersonaJuridica = idPersonaJuridica;
 	}
 
-	public String getCuit() {
-		return cuit;
-	}
-
-	public void setCuit(String cuit) {
-		this.cuit = cuit;
-	}
-
 	public String getRazonSocial() {
 		return razonSocial;
 	}
@@ -38,10 +30,18 @@ public class PersonaJuridica extends Cliente{
 		this.razonSocial = razonSocial;
 	}
 
+	public String getCuit() {
+		return cuit;
+	}
+
+	public void setCuit(String cuit) {
+		this.cuit = cuit;
+	}
+
 	@Override
 	public String toString() {
-		return "PersonaJuridica [idPersonaJuridica=" + idPersonaJuridica + ", cuit=" + cuit + ", razonSocial="
-				+ razonSocial + "]";
+		return super.toString() + "PersonaJuridica [idPersonaJuridica=" + idPersonaJuridica + ", razonSocial=" + razonSocial + ", cuit="
+				+ cuit + "]";
 	}
 	
 	

@@ -2,11 +2,105 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>Programacion</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
+  	<welcome-file>index.jsp</welcome-file>
+    <welcome-file>altaCliente.jsp</welcome-file>
+    <welcome-file>modificarCliente.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+        <servlet-name>AltaClienteJsp</servlet-name>
+        <servlet-class>controladores.AltaClienteJsp</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AltaClienteJsp</servlet-name>
+        <url-pattern> /MostrarClienteJSP </url-pattern>
+    </servlet-mapping>
+    <!--Traer Cliente Fisico -->
+     <servlet>
+        <servlet-name>TraerClienteFisico</servlet-name>
+        <servlet-class>controladores.TraerClienteFisico</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TraerClienteFisico</servlet-name>
+        <url-pattern> /buscarDni </url-pattern>
+    </servlet-mapping>
+    
+     <!--Traer Cliente Juridico -->
+     <servlet>
+        <servlet-name>TraerClienteJuridico</servlet-name>
+        <servlet-class>controladores.TraerClienteJuridico</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TraerClienteJuridico</servlet-name>
+        <url-pattern> /buscarCuit </url-pattern>
+    </servlet-mapping>
+    
+    <!--Modificar Cliente Fisico -->
+     <servlet>
+        <servlet-name>ModificarClienteFisicojsp</servlet-name>
+        <servlet-class>controladores.ModificarClienteFisicojsp</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ModificarClienteFisicojsp</servlet-name>
+        <url-pattern> /modificarClienteF </url-pattern>
+    </servlet-mapping>
+    <!-- Modificar Cliente Juridico -->
+    <servlet>
+    	<servlet-name>ModificarClienteJuridico</servlet-name>
+    	<servlet-class>controladores.ModificarClienteJuridicojsp</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>ModificarClienteJuridico</servlet-name>
+    	<url-pattern>/modificarClienteJ</url-pattern>
+    </servlet-mapping>
+    <!-- Eliminar Cliente -->
+    <servlet>
+    	<servlet-name>EliminarCliente</servlet-name>
+    	<servlet-class>controladores.EliminarClienteJsp</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>EliminarCliente</servlet-name>
+    	<url-pattern>/eliminarCliente</url-pattern>
+    </servlet-mapping>
+     <!--traerFactura -->
+     <servlet>
+        <servlet-name>traerFacturajsp</servlet-name>
+        <servlet-class>controladores.TraerFacturaDelMedidor</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>traerFacturajsp</servlet-name>
+        <url-pattern> /traerFactura </url-pattern>
+    </servlet-mapping>
+    <!-- TraerReportePorConsumoEntreFechasDeCliente -->
+     <servlet>
+        <servlet-name>TraerReportePorConsumoEntreFechasDeClientejsp</servlet-name>
+        <servlet-class>controladores.TraerReportePorConsumoEntreFechasDeCliente</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TraerReportePorConsumoEntreFechasDeClientejsp</servlet-name>
+        <url-pattern> /mostrarReporteDelCliente </url-pattern>
+    </servlet-mapping>
+    <!-- traerFacturasEntreFechas -->
+     <servlet>
+        <servlet-name>traerFacturasEntreFechasjsp</servlet-name>
+        <servlet-class>controladores.TraerFacturasEntreFechas</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>traerFacturasEntreFechasjsp</servlet-name>
+        <url-pattern> /traerFacturaEntreFechas </url-pattern>
+    </servlet-mapping>
+    
+     <!-- Energia Total Entregada Entre Fechas -->
+     <servlet>
+        <servlet-name>energiaTotalEntregadaEntreFechasjsp</servlet-name>
+        <servlet-class>controladores.Energia</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>energiaTotalEntregadaEntreFechasjsp</servlet-name>
+        <url-pattern> /energiaTotalEntregadaEntreFechas </url-pattern>
+    </servlet-mapping>
+    
+    <error-page>
+        <location>/general-error.html</location>
+    </error-page>
+    
 </web-app>

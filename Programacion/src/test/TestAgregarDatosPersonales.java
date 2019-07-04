@@ -1,24 +1,34 @@
 package test;
 
 import datos.DatosPersonales;
-import dao.DatosPersonalesDao;
-import dao.HibernateUtil;
+import negocio.DatosPersonalesABM;
 
 public class TestAgregarDatosPersonales {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		DatosPersonalesDao d = DatosPersonalesDao.getInstancia();
+		DatosPersonalesABM abm = DatosPersonalesABM.getInstancia();
 		try {
-			DatosPersonales d1 = new DatosPersonales(35639606,"Oscar","Ruina");
-			d.agregarDatosPersonales(d1);
-			System.out.println(d.traerDatosPersonales(35639606));
+			DatosPersonales p = new DatosPersonales("persona","uno",1);
+			System.out.println("Ultimo id agregado -->" + abm.agregarDatosPersonales(p));
+			DatosPersonales p2 = new DatosPersonales("persona","dos",2);
+			System.out.println("Ultimo id agregado -->" + abm.agregarDatosPersonales(p2));
+			DatosPersonales p3 = new DatosPersonales("persona","tres",3);
+			System.out.println("Ultimo id agregado -->" + abm.agregarDatosPersonales(p3));
 		}
 		catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
-		finally {
-			HibernateUtil.getSessionFactory().close();
+		
+		try {
+			DatosPersonales p1 = abm.traerDatosPersonalesPorDNI(1);
+			System.out.println(p1);
+			DatosPersonales p2 = abm.traerDatosPersonalesPorId(1);
+			System.out.println(p2);
+		
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
 		}
 
 	}

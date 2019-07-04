@@ -2,38 +2,29 @@ package datos;
 
 public class DatosPersonales {
 	
-	private long idDatosPersonales;
-	private int dni;
+	private int idDatosPersonales;
 	private String nombre;
 	private String apellido;
+	private int dni;
 	private PersonaFisica personafisica;
 	private Inspector inspector;
 	
 	public DatosPersonales() {}
 	
-	public DatosPersonales(int dni, String nombre, String apellido) {
+	public DatosPersonales(String nombre, String apellido, int dni) {
 		super();
-		this.dni = dni;
+
 		this.nombre = nombre;
 		this.apellido = apellido;
+		this.dni = dni;
 	}
-	
-	
 
-	public long getIdDatosPersonales() {
+	public int getIdDatosPersonales() {
 		return idDatosPersonales;
 	}
 
-	protected void setIdDatosPersonales(long idDatosPersonales) {
+	protected void setIdDatosPersonales(int idDatosPersonales) {
 		this.idDatosPersonales = idDatosPersonales;
-	}
-
-	public int getDni() {
-		return dni;
-	}
-
-	public void setDni(int dni) {
-		this.dni = dni;
 	}
 
 	public String getNombre() {
@@ -51,12 +42,20 @@ public class DatosPersonales {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+
+	public int getDni() {
+		return dni;
+	}
+
+	public void setDni(int dni) {
+		this.dni = dni;
+	}
 	
-	public PersonaFisica getPersonaFisica() {
+	public PersonaFisica getPersonafisica() {
 		return personafisica;
 	}
 
-	public void setPersonaFisica(PersonaFisica personafisica) {
+	public void setPersonafisica(PersonaFisica personafisica) {
 		this.personafisica = personafisica;
 	}
 
@@ -70,10 +69,19 @@ public class DatosPersonales {
 
 	@Override
 	public String toString() {
-		return "DNI=" + dni + ", nombre=" + nombre + ", apellido=" + apellido;
+		return "DatosPersonales [idDatosPersonales=" + idDatosPersonales + ", nombre=" + nombre + ", apellido="
+				+ apellido + ", dni=" + dni + "]";
 	}
 
+
+
+
+
+
+    
 	
+	
+
 	
 	
 

@@ -3,15 +3,15 @@ package datos;
 public class PersonaFisica extends Cliente{
 	
 	private int idPersonaFisica;
-	private DatosPersonales datospersonales;
+	private DatosPersonales dPersonales;
 	
 	public PersonaFisica() {}
 
-	public PersonaFisica(String direccion,DatosPersonales datospersonales) {
+	public PersonaFisica(String direccion, DatosPersonales dPersonales) {
 		super(direccion);
-		this.datospersonales = datospersonales;
+		this.dPersonales = dPersonales;
 	}
-	
+
 	public int getIdPersonaFisica() {
 		return idPersonaFisica;
 	}
@@ -20,18 +20,20 @@ public class PersonaFisica extends Cliente{
 		this.idPersonaFisica = idPersonaFisica;
 	}
 
-	public DatosPersonales getDatosPersonales() {
-		return datospersonales;
+	public DatosPersonales getdPersonales() {
+		return dPersonales;
 	}
 
-	public void setDatosPersonales(DatosPersonales datospersonales) {
-		this.datospersonales = datospersonales;
+	public void setdPersonales(DatosPersonales dPersonales) {
+		this.dPersonales = dPersonales;
 	}
 
 	@Override
 	public String toString() {
-		return "PersonaFisica [idPersonaFisica=" + idPersonaFisica + ", datospersonales=" + datospersonales + "]";
+		return super.toString() + "PersonaFisica [idPersonaFisica=" + idPersonaFisica + "]" + " Nombre: " + dPersonales.getNombre() + " Apellido: " + dPersonales.getApellido() + " DNI: " + dPersonales.getDni();
 	}
+
+	
 	
 	
 

@@ -2,11 +2,11 @@ package datos;
 
 import java.util.Set;
 
-public class Cliente {
+public abstract class Cliente {
 	
 	private int idCliente;
 	private String direccion;
-	private Set<Medidor> medidores;
+	private Set<Medidor> medidor;
 	
 	public Cliente() {}
 
@@ -31,19 +31,21 @@ public class Cliente {
 		this.direccion = direccion;
 	}
 
-	public Set<Medidor> getMedidores() {
-		return medidores;
+	public Set<Medidor> getMedidor() {
+		return medidor;
 	}
 
-	public void setMedidores(Set<Medidor> medidores) {
-		this.medidores = medidores;
+	public void setMedidor(Set<Medidor> medidor) {
+		this.medidor = medidor;
 	}
 
 	@Override
 	public String toString() {
-		return "Cliente [idCliente=" + idCliente + ", direccion=" + direccion;
+		return "Cliente [idCliente=" + idCliente + ", direccion=" + direccion + "]";
 	}
+
 	
+
 	
 	
 

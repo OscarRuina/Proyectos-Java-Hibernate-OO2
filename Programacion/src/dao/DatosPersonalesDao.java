@@ -1,9 +1,12 @@
 package dao;
 
+
+//import datos.Cliente;
+import datos.DatosPersonales;
+//import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import datos.DatosPersonales;
 
 public class DatosPersonalesDao {
 	
@@ -30,11 +33,24 @@ public class DatosPersonalesDao {
 		throw new HibernateException("ERROR en la capa de acceso a datos",he);
 	}
 	
-	public DatosPersonales traerDatosPersonales(int dni) {
-		DatosPersonales d= null;
+	public DatosPersonales traerDatosPersonalesPorId(int idDatosPersonales) {
+		DatosPersonales d = null;
 		try {
 			iniciaOperacion();
-			d = (DatosPersonales) session.createQuery("from DatosPersonales d where d.dni =" + dni).uniqueResult();
+			d = (DatosPersonales)session.get(DatosPersonales.class, idDatosPersonales);
+			
+		}
+		finally {
+			session.close();
+		}
+		return d;
+	}
+	public DatosPersonales traerDatosPersonalesPorDNi(int dni) {
+		DatosPersonales d = null;
+		try {
+			iniciaOperacion();
+			d = (DatosPersonales)session.createQuery("from DatosPersonales p where p.dni=" + dni).uniqueResult();
+			
 		}
 		finally {
 			session.close();
@@ -47,17 +63,37 @@ public class DatosPersonalesDao {
 		try {
 			iniciaOperacion();
 			id = Integer.parseInt(session.save(d).toString());
+			tx.commit();
+		}
+		catch(HibernateException he) {
+			manejaExcepcion(he);
+			throw he;
 		}
 		finally {
 			session.close();
 		}
 		return id;
 	}
-	
-	public void modificarDatosPersonales(DatosPersonales d) {
+	public void actualizarCliente(DatosPersonales c)throws HibernateException{
 		try {
 			iniciaOperacion();
-			session.update(d);
+			session.update(c);
+			tx.commit();
+		}
+		catch(HibernateException he) {
+			manejaExcepcion(he);
+			throw he;
+		}
+		finally {
+			session.close();
+		}
+	}
+	
+	public void eliminarDatosPersonales(DatosPersonales d) {
+		try {
+			iniciaOperacion();
+			session.delete(d);
+			tx.commit();
 		}
 		catch(HibernateException he) {
 			manejaExcepcion(he);
